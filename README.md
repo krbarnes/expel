@@ -1,3 +1,3 @@
-# xcconfig-gen
+# Expel
 
-A description of this package.
+Move your build settings from your Xcode project to xcconfig files

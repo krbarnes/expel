@@ -19,14 +19,14 @@ guard projectPath.exists else {
 }
 
 let projectFolder = projectPath.parent()
-let xcconfigFolder = projectFolder + Path("xcconfig")
+let xcconfigFolder = projectFolder + Path("xcconfigs")
 
 if !xcconfigFolder.exists {
 	try! xcconfigFolder.mkdir()
 }
 
 let project = try! XcodeProj(path: projectPath)
-let projectXCConfigPath = xcconfigFolder + Path("project.xcconfig")
+let projectXCConfigPath = xcconfigFolder + Path("Project.xcconfig")
 if let projectBuildConfigurations = project.pbxproj.projects.first!.buildConfigurationList {
 	ConfigWriter(configPath: projectXCConfigPath, configurations: projectBuildConfigurations).write()
 }
